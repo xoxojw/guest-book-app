@@ -39,6 +39,16 @@
       "email": "asdf",
       "password": "123",
       "id": 8
+    },
+    {
+      "email": "asdf@naver.com",
+      "password": "asdfasdf",
+      "id": 9
+    },
+    {
+      "email": "asdf1@naver.com",
+      "password": "asdfasdf",
+      "id": 10
     }
   ],
   "boards": [
