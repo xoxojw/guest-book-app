@@ -21,6 +21,7 @@ const AuthLayout = () => {
     // TODO: "/auth"로 이동
     if (localToken && localEmail) return;
     else {
+      // 🤔 alert이 두 번 뜨는 이유
       alert("토큰 또는 이메일이 없습니다. 로그인해주세요.");
       localStorage.removeItem("token");
       localStorage.removeItem("email");
