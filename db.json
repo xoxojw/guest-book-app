@@ -73,7 +73,7 @@
     {
       "email": "test@gmail.com",
       "contents": "캬캬캬캬",
-      "isDeleted": false,
+      "isDeleted": true,
       "id": 4
     },
     {
@@ -109,14 +109,26 @@
     {
       "email": "asdf@naver.com",
       "contents": "안녕하세요",
-      "isDeleted": false,
+      "isDeleted": true,
       "id": 10
     },
     {
       "email": "asdf@naver.com",
       "contents": "ㅎㅎㅎ",
-      "isDeleted": false,
+      "isDeleted": true,
       "id": 11
+    },
+    {
+      "email": "asdf@naver.com",
+      "contents": "삭제 테스트",
+      "isDeleted": false,
+      "id": 12
+    },
+    {
+      "email": "asdf@naver.com",
+      "contents": "ㅎㅎㅎㅎㅎ",
+      "isDeleted": true,
+      "id": 13
     }
   ]
 }

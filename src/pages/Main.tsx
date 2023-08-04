@@ -15,10 +15,10 @@ const Main: React.FC<any> = () => {
     // TODO: 데이터베이스에서 boards 리스트 가져오기
     // TODO: 가져온 결과 배열을 data state에 set 하기
     try {
-      const res = await axios.get(`${BASE_URL}/boards`);
-      const boards = res.data
+      const res = await axios.get(`${BASE_URL}/boards?isDeleted=false`);
+      const boards = res.data;
       setData(boards);
-      console.log(data);
+      console.log(boards);
     } catch (err) {
     // TODO: 네트워크 등 기타 문제인 경우, "일시적인 오류가 발생하였습니다. 고객센터로 연락주세요." alert
       alert("일시적인 오류가 발생하였습니다. 고객센터로 연락주세요.")
@@ -53,6 +53,18 @@ const Main: React.FC<any> = () => {
     }
   };
 
+  const handleBoardDelete = async (id: number) => {
+    try {
+      await axios.patch(`${BASE_URL}/boards/${id}`, {
+        isDeleted: true,
+      })
+      alert("삭제가 완료되었습니다. 아직 자동 새로고침이 불가하여 수동으로 갱신합니다.")
+      window.location.reload();
+    } catch (err) {
+      alert("일시적인 오류로 정상적으로 삭제되지 않았습니다. 고객센터로 연락주세요.")
+    }
+  }
+
   const handleInputChange = (e: any) => {
     setContents(e.target.value);
   };
@@ -82,7 +94,7 @@ const Main: React.FC<any> = () => {
             {/* // TODO: 로그인 한 user의 이메일과 일치하는 경우에만 삭제버튼 보이도록 제어 */}
             {item.email === currentUserEmail
               &&
-              <Button>삭제</Button>
+              <Button onClick={() => (handleBoardDelete(item.id))}>삭제</Button>
             }
           </ListItem>
         ))}
